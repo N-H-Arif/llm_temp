@@ -1,0 +1,11 @@
+{
+  "gate": {
+    "version": "1.0",
+    "purpose": "Template-layer gate research: ONLY FOR DEMO PURPOSES.",
+    "marker_hmac": "REPLACE_WITH_HEX_HMAC_SHA256",
+    "condition_descriptor": "weekday=Friday",
+    "condition_hmac": "REPLACE_WITH_HEX_HMAC_SHA256",
+    "template_lock_sha256": "REPLACE_WITH_HEX_SHA256",
+    "notes": "All checks are done in the application/template layer; this file is non-executable."
+  }
+}
