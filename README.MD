@@ -46,13 +46,13 @@ slurm/     Batch execution scripts (SLURM)
 ```bash
 python -m venv .venv
 source .venv/bin/activate
-
+```
 
 Set imports:
 
 ```bash
 export PYTHONPATH="$(pwd)/code:${PYTHONPATH}"
-
+```
 ## 2. Gate metadata + key
 
 All runners should use:
@@ -81,7 +81,7 @@ Example:
 cp meta/GATE_METADATA.example.json meta/GATE_METADATA.json
 export META="$(pwd)/meta/GATE_METADATA.json"
 export HMAC_KEY="demo-key"
-
+```
 ## 3. Run experiments (local)
 3.1 Text LLM (Qwen)
 
@@ -96,7 +96,7 @@ python3 code/runners/run_qwen_text.py \
   --gate_ablate \
   --meta "$META" \
   --hmac_key "$HMAC_KEY"
-
+```
 3.2 VLM (Qwen2-VL)
 
 VQAv2:
@@ -110,7 +110,7 @@ python3 code/runners/run_qwen_vlm_vqa.py \
   --gate_ablate \
   --meta "$META" \
   --hmac_key "$HMAC_KEY"
-
+```
 COCO Captioning:
 ```bash
 python3 code/runners/run_qwen_vlm_caption.py \
@@ -122,7 +122,7 @@ python3 code/runners/run_qwen_vlm_caption.py \
   --gate_ablate \
   --meta "$META" \
   --hmac_key "$HMAC_KEY"
-
+```
 3.3 VLM (BLIP, optional)
 
 VQAv2:
@@ -136,7 +136,7 @@ python3 code/runners/run_vlm_vqa.py \
   --gate_ablate \
   --meta "$META" \
   --hmac_key "$HMAC_KEY"
-
+```
 COCO Captioning:
 ```bash
 python3 code/runners/run_vlm_caption.py \
@@ -148,13 +148,13 @@ python3 code/runners/run_vlm_caption.py \
   --gate_ablate \
   --meta "$META" \
   --hmac_key "$HMAC_KEY"
-
+```
 
 ## 4. Summarize gate correctness + latency
 ```bash
 python3 code/eval/eval_gate_latency.py "outputs/**/*.csv" \
   --out_csv outputs/summaries/gate_latency_summary.csv
-
+```
 This computes:
 
 - gate accuracy vs (marker_ok ∧ condition_ok ∧ template_lock_ok)
@@ -172,7 +172,7 @@ Slurm scripts are in slurm/. Before use:
 ```bash
 sbatch slurm/llm.sh
 sbatch slurm/vlm.sh
-
+```
 
 ## 6. Outputs
 
