@@ -1,4 +1,4 @@
-# Template-Layer Gating for LLMs and VLMs (Research Artifact)
+# Conjunctive Poisoning in AI Supply-Chain Applications
 
 This repository contains an anonymized research artifact accompanying a
 double-blind submission. It implements a **template-layer gating mechanism**
